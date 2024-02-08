@@ -7,35 +7,6 @@ interface Props {
 const { open } = Astro.props;
 ---
 
-<script lang="ts">
-  const accordion = document.getElementById('acordeon');
-  if (!accordion) throw new ReferenceError();
-
-  accordion.addEventListener('click', (e) => {
-    const target = e.target;
-    const dataset = { ...target.dataset };
-
-    const content = target.nextElementSibling;
-    const arrow = target.querySelector('img');
-
-    if (!arrow || !content) throw new ReferenceError();
-
-    switch (dataset.status) {
-      case 'disabled':
-        content.style.gridTemplateRows = '1fr';
-        target.dataset.status = 'enabled';
-        arrow.style.rotate = '90deg';
-        break;
-      case 'enabled':
-        content.style.gridTemplateRows = '0fr';
-        target.dataset.status = 'disabled';
-        arrow.style.rotate = '0deg';
-        break;
-      default:
-        break;
-    }
-  });
-</script>
 <div>
   <ul id="acordeon" class="flex items-center flex-col gap-6">
     {
@@ -68,3 +39,33 @@ const { open } = Astro.props;
     }
   </ul>
 </div>
+
+<script type="module">
+  const accordion = document.getElementById('acordeon');
+  if (!accordion) throw new ReferenceError();
+
+  accordion.addEventListener('click', (e) => {
+    const target = e.target;
+    const dataset = { ...target.dataset };
+
+    const content = target.nextElementSibling;
+    const arrow = target.querySelector('img');
+
+    if (!arrow || !content) throw new ReferenceError();
+
+    switch (dataset.status) {
+      case 'disabled':
+        content.style.gridTemplateRows = '1fr';
+        target.dataset.status = 'enabled';
+        arrow.style.rotate = '90deg';
+        break;
+      case 'enabled':
+        content.style.gridTemplateRows = '0fr';
+        target.dataset.status = 'disabled';
+        arrow.style.rotate = '0deg';
+        break;
+      default:
+        break;
+    }
+  });
+</script>
