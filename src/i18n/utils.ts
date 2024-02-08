@@ -15,8 +15,13 @@ export function useTranslations(lang: keyof typeof ui) {
 export function useTranslatedPath(lang: keyof typeof ui) {
   return function translatePath(path: string, l: string = lang) {
     const pathName = path.replaceAll('/', '');
-    const hasTranslation = defaultLang !== l && routes[l] !== undefined && routes[l][pathName] !== undefined;
-    const translatedPath = hasTranslation ? '/' + routes[l][pathName] : path;
+    const hasTranslation =
+      defaultLang !== l &&
+      routes[l as keyof typeof routes] !== undefined &&
+      (routes[l as keyof typeof routes] as Record<string, string>)[pathName] !== undefined;
+    const translatedPath = hasTranslation
+      ? '/' + (routes[l as keyof typeof routes] as Record<string, string>)[pathName]
+      : path;
 
     return !showDefaultLang && l === defaultLang ? translatedPath : `/${l}${translatedPath}`;
   };
@@ -34,7 +39,7 @@ export function getRouteFromUrl(url: URL): string | undefined {
   const currentLang = getLangFromUrl(url);
 
   if (defaultLang === currentLang) {
-    const route = Object.values(routes)[0];
+    const route: { [key: string]: string } = Object.values(routes)[0];
     return route[path] !== undefined ? route[path] : undefined;
   }
 
@@ -86,7 +91,15 @@ export const localizePath = (
   path = pathSegments.length === 0 ? '' : pathSegments.join('/');
   base = baseSegments.length === 0 ? '/' : '/' + baseSegments.join('/') + '/';
 
-  const { flatRoutes, showDefaultLocale, defaultLocale, locales, trailingSlash } = {
+  interface RouteConfig {
+    defaultLocale: string;
+    locales: string[];
+    flatRoutes: Record<string, string>;
+    showDefaultLocale: boolean;
+    trailingSlash: 'always' | 'never' | 'ignore';
+  }
+
+  const { flatRoutes, showDefaultLocale, defaultLocale, locales, trailingSlash }: RouteConfig = {
     defaultLocale: 'cimode',
     locales: [],
     flatRoutes: {},
