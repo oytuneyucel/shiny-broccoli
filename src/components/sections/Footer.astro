@@ -1,0 +1,65 @@
+---
+import { Icon } from 'astro-icon/components';
+import { SITE } from '~/utils/config';
+import { getHomePermalink } from '~/utils/permalinks';
+
+interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+  icon?: string;
+}
+
+interface Links {
+  title?: string;
+  links: Array<Link>;
+}
+
+export interface Props {
+  links: Array<Links>;
+  secondaryLinks: Array<Link>;
+  socialLinks: Array<Link>;
+  footNote?: string;
+  theme?: string;
+}
+
+const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+---
+
+<footer>
+  <div class="md:flex md:items-center py-6 md:py-8 justify-center">
+    {
+      socialLinks?.length ? (
+        <ul class="flex mb-4 md:order-1">
+          {socialLinks.map(({ ariaLabel, href, text, icon }) => (
+            <li>
+              <a
+                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                aria-label={ariaLabel}
+                href={href}
+              >
+                {icon && <Icon name={icon} class="w-5 h-5" />}
+                <Fragment set:html={text} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        ''
+      )
+    }
+  </div>
+  <nav class="py-4">
+    <ul class="flex justify-between uppercase font-medium text-sm text-transparent md:text-base">
+      <li>
+        <a class="silver hover:brightness-150" href="#">terms & agreements</a>
+      </li>
+      <li>
+        <a class="silver hover:brightness-150" href="#">©all rights reserved</a>
+      </li>
+      <li>
+        <a class="silver hover:brightness-150" href="#">privacy policy</a>
+      </li>
+    </ul>
+  </nav>
+</footer>

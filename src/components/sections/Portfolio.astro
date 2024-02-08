@@ -1,0 +1,30 @@
+---
+import CheapButton from '../utils/CheapButton.astro';
+import PortfolioCard from '../utils/PortfolioCard.astro';
+---
+
+<section class="mb-section">
+  <h2 class="text-title mb-4">featured project</h2>
+  <div class="grid gap-8 mb-8 md:grid-cols-2">
+    <p class="text-sm opacity-50">our inspired solutions have helped shape moren architectural design</p>
+    <aside class="flex flex-wrap gap-4 text-sm md:justify-items-end">
+      <CheapButton> manufacturing </CheapButton>
+      <CheapButton> packaging </CheapButton>
+      <CheapButton> parts </CheapButton>
+    </aside>
+  </div>
+  <div class="h-[40rem] grid gap-4 md:h-[30rem] md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 [&>*]:overflow-hidden">
+    <div class="w-full h-full lg:col-span-2">
+      <PortfolioCard src="images/brands/syntegon-logo.png" alt="some building" title="syntegon" />
+    </div>
+    <div class="w-full h-full lg:row-span-2">
+      <PortfolioCard src="images/buildings/arch_02.jpg" alt="some building" title="gerresheimer" />
+    </div>
+    <div class="w-full h-full lg:row-span-2">
+      <PortfolioCard src="images/buildings/arch_03.jpg" alt="some building" title="este building" />
+    </div>
+    <div class="w-full h-full lg:col-span-2">
+      <PortfolioCard src="images/buildings/arch_04.jpg" alt="some building" title="oeste building" />
+    </div>
+  </div>
+</section>

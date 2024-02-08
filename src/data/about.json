@@ -1,0 +1,34 @@
+[
+	{
+		"title": "solid",
+		"description": "Solid dosage forms are the primary method of drug delivery in the pharmaceutical industry, including tablets, capsules, and inhalation materials. The polymorphic form of the Active Pharmaceutical Ingredient (API) is crucial for bioavailability, with techniques like XRD and SSNMR playing essential roles in characterizing and ensuring the stability of these forms."
+	},
+	{
+		"title": "liquid",
+		"description": "Liquid dosage forms, such as oral liquids or syrups, are essential for the pharmaceutical industry, offering advantages in manufacturing and patient compliance. Equipment for liquid manufacturing includes sugar melting vessels, filtration units, and storage containers, ensuring the production of high-quality liquid pharmaceuticals."
+	},
+	{
+		"title": "water treatment systems",
+		"description": "Water treatment systems in the pharmaceutical industry ensure the production of purified water, highly purified water, and water for injection, meeting stringent safety standards. These systems, including reverse osmosis and ultrafiltration, are crucial for preventing contamination and ensuring the safety and integrity of pharmaceutical products."
+	},
+	{
+		"title": "inhalers & syringe assembly",
+		"description": "The assembly of inhalers and syringes requires precision and compliance with pharmaceutical standards. Automatic machines for assembling pen devices and syringes ensure safety, hygiene, and dosing accuracy, meeting the needs of medical injections and other pharmaceutical applications."
+	},
+	{
+		"title": "packaging",
+		"description": "Packaging in the pharmaceutical industry involves a range of machinery and systems for ensuring the safety and integrity of products. This includes blister packing, bottling, capping, cartoning, and labeling, all designed to meet regulatory standards and protect pharmaceuticals during storage and transport."
+	},
+	{
+		"title": "optic inspection",
+		"description": "Optic inspection systems are employed in the pharmaceutical industry for quality control, ensuring the integrity and safety of pharmaceutical products. These systems detect defects and contaminants, playing a crucial role in maintaining high standards of product quality."
+	},
+	{
+		"title": "validation",
+		"description": "Validation processes in the pharmaceutical industry, including qualification, validation, and risk analyses, ensure compliance with Good Manufacturing Practices (GMP) and other regulatory standards. These processes are essential for confirming the safety, quality, and efficacy of pharmaceutical products."
+	},
+	{
+		"title": "barrier systems",
+		"description": "Barrier systems, such as isolators and Restricted Access Barrier Systems (RABS), provide critical contamination control in pharmaceutical manufacturing. These systems ensure aseptic conditions and protect both the product and personnel from exposure to hazardous substances."
+	}
+]

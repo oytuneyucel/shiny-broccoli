@@ -1,0 +1,48 @@
+---
+import localeEmoji from 'locale-emoji';
+
+import { languages } from '../../i18n/ui';
+import { getRouteFromUrl, useTranslatedPath, getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const route = getRouteFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const { showFlag = true, languageMapping, ...attributes } = Astro.props;
+const { pathname } = Astro.url;
+---
+
+<!-- 
+<ul>
+  {
+    Object.entries(languages).map(([lang, label]) => (
+      <li>
+        <a href={translatePath('/', lang)}>{label}</a>
+      </li>
+    ))
+  }
+</ul> -->
+<ul
+  onchange="location = this.value;"
+  {...attributes}
+  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+>
+  {
+    Object.entries(languages).map(([lang, label]) => {
+      let value = translatePath('/', lang);
+
+      const flag = showFlag ? localeEmoji(lang.toUpperCase()) + ' ' : '';
+
+      const flaggedLabel = flag + label;
+
+      return (
+        <li>
+          <a class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white">
+            {flaggedLabel}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>

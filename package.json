@@ -12,6 +12,7 @@
     "lint:eslint": "eslint . --ext .js,.ts,.astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.4.1",
     "@astrojs/rss": "^4.0.4",
     "@astrojs/sitemap": "^3.0.5",
     "@astrolib/analytics": "^0.5.0",
@@ -20,11 +21,10 @@
     "astro": "^4.2.6",
     "astro-icon": "^1.0.3",
     "limax": "4.1.0",
+    "locale-emoji": "^0.3.0",
     "lodash.merge": "^4.6.2",
     "typescript-esbuild": "^0.3.6",
-    "unpic": "^3.16.0",
-    "@astrojs/check": "^0.4.1",
-    "typescript": "^5.3.3"
+    "unpic": "^3.16.0"
   },
   "devDependencies": {
     "@astrojs/mdx": "^2.1.0",
@@ -33,6 +33,7 @@
     "@iconify-json/flat-color-icons": "^1.1.10",
     "@iconify-json/tabler": "^1.1.104",
     "@tailwindcss/typography": "^0.5.10",
+    "@types/js-yaml": "^4.0.9",
     "@types/lodash.merge": "^4.6.9",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
